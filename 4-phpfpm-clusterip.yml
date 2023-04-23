@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: phpfpm-svc
+  name: phpfpm
   labels:
     app: phpfpm
     layer: backend
