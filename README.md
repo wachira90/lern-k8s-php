@@ -1,14 +1,15 @@
 # lern-k8s-php
 lerning kubernet php
 
-## create doc root
+## quick start
 
 example current user => user1
 
 ```bash
-sudo mkdir /var/website
-sudo echo "test php" > /var/website/index.html
-kubectl create configmap nginx --from-file=/var/website/nginx.conf
-sudo echo "<?php phpinfo();?>" > /var/website/index.php
+cd /var/
+git clone https://github.com/wachira90/lern-k8s-php
+mv lern-k8s-php/ website/
 sudo chmod -R 0775 /var/website && sudo chown -R user1:root /var/website
+kubectl create configmap nginx --from-file=/var/website/nginx.conf
+kubectl apply -f .
 ```
