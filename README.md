@@ -19,3 +19,51 @@ kubectl apply -f . -n test
 ```bash
 kubectl delete -f . -n test
 ```
+
+## test
+
+```
+http://localhost:30000
+```
+
+## option when add domain
+
+```yml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test-ingress
+  namespace: test
+  labels:
+    app: nginx
+    layer: frontend
+spec:
+  ingressClassName: public
+  rules:
+  - host: kube-server.inno.test
+    http:
+      paths:
+        - pathType: Exact
+          path: "/"
+          backend:
+            service:
+              name: nginx
+              port:
+                number: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: test
+  labels:
+    app: nginx
+    layer: frontend
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx
+  ports:
+  - port: 80
+    protocol: TCP
+```
