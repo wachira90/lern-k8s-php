@@ -34,6 +34,8 @@ kind: Ingress
 metadata:
   name: test-ingress
   namespace: test
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"  
   labels:
     app: nginx
     layer: frontend
