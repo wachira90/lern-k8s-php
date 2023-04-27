@@ -77,3 +77,25 @@ spec:
   - port: 80
     protocol: TCP
 ```
+
+## Autoscaling Example
+
+kubectl autoscale deployment phpfpm --cpu-percent=50 --min=2 --max=10 -n test
+
+```yml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: phpfpm
+  namespace: test
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: phpfpm
+    apiVersion: apps/v1
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
+status:
+  currentReplicas: 3
+```
