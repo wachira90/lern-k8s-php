@@ -99,3 +99,10 @@ spec:
 status:
   currentReplicas: 3
 ```
+
+## Load test 
+
+```bash
+kubectl run load-generator --image=docker.io/library/busybox:1.28.4 --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://k8s-inno.innovisor.co.th:30000; done"
+```
+
