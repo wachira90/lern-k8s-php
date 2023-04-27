@@ -11,7 +11,7 @@ data:
       listen [::]:80;
       access_log off;
       root /var/www/html;
-      index index.php;
+      index index.php index.html index.htm;
       server_name _;
       server_tokens off;
       location / {
