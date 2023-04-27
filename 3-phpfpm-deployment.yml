@@ -21,10 +21,10 @@ spec:
           ports:
             - containerPort: 9000
           resources:
-          limits:
-            cpu: 200m
-          requests:
-            cpu: 100m
+            limits:
+              cpu: 200m
+            requests:
+              cpu: 100m
           volumeMounts:
             - mountPath: /var/www/html/
               name: contents
