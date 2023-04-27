@@ -1,32 +1,40 @@
 # lern-k8s-php
 lerning kubernet php
 
-## quick start
+## Quick start
 
-linux current user => user1
+```
+php:fpm-alpine
+php:7.4.33-fpm-alpine3.16
+php:7.3.33-fpm-alpine3.15
+php:7.2.34-fpm-alpine3.12
+php:7.1.33-fpm-alpine3.10
+php:7.0.33-fpm-alpine3.7
+```
+
+Linux current user => user1
 
 ```bash
-cd /var
+cd /mnt
 sudo git clone https://github.com/wachira90/lern-k8s-php.git
-sudo mv lern-k8s-php/ website/
-sudo chmod -R 0775 /var/website && sudo chown -R user1:root /var/website
-cd website/
+sudo chmod -R 0775 /mnt/lern-k8s-php && sudo chown -R user1:root /mnt/lern-k8s-php
+cd lern-k8s-php/
 kubectl apply -f . -n test
 ```
 
-## delete
+## Delete
 
 ```bash
 kubectl delete -f . -n test
 ```
 
-## test
+## Test
 
 ```
 http://localhost:30000
 ```
 
-## option when add domain
+## Option when add domain
 
 ```yml
 apiVersion: networking.k8s.io/v1
