@@ -50,7 +50,7 @@ metadata:
 spec:
   ingressClassName: public
   rules:
-  - host: kube-server.inno.test
+  - host: kube-server.example.test
     http:
       paths:
         - pathType: Exact
